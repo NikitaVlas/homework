@@ -21,7 +21,7 @@ export const HW4 = () => {
 
   const handleSave = () => {
       if (currentText.trim()) {
-          setTexts([currentText, ...texts]);
+          setTexts((prevTexts) => [currentText, ...prevTexts]); // Используем prevTexts
           setCurrentText('');
       }
   };
@@ -34,7 +34,7 @@ export const HW4 = () => {
         <h1 id={'hw04-default-text'}>Здесь появится новое дело</h1>
       )}
 
-      <Input currentText={currentText} setCurrentText={setCurrentText}/>
+      <Input currentText={currentText} setCurrentText={setCurrentText} saveTask={handleSave}/>
 
       <Button callBack={handleSave} name="Добавить" />
 
